@@ -3,29 +3,27 @@ package com.hma.pages;
 import com.hma.pages.feature.HomePage;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import static com.hma.pages.PageInitialisation.homePage;
+import static com.hma.pages.PageInitialisation.menuBar;
 
+
+@Test
 public class HomePageTest extends TestBase {
 
-	HomePage homepage;
-	
-	// @Parameters({ "path" })
-
-	@BeforeClass(enabled=true)
-	public void testInit(String path) {
-
-		// Load the page in the browser
-		webdriver.get(websiteUrl + path);
-		homepage = PageFactory.initElements(webdriver, HomePage.class);
+	@BeforeTest
+	public void testInit() {
+        PageFactory.initElements(webdriver, HomePage.class);
+		webdriver.get(websiteUrl);
 	}
 
-	@Test(enabled=true,groups="p1", testName = "Something")
-	public void testSomething() throws InterruptedException {
+	@Test(groups = { "p1", "smoke" })
+	public void testSomething() {
 
-        BasePage.HomePage().Goto();
-		BasePage.MenuBar().ClickHmaHomeLink();
+        homePage().Goto();
+		menuBar().ClickHmaHomeLink();
 
 	}
 

@@ -7,8 +7,5 @@
                 <include name="p1"/>
             </run>
         </groups>
-		<classes>
-		    <class name="com.hma.pages.HomePageTest"/>
-		</classes>
 	</test>  
 </suite>

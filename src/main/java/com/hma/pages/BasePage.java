@@ -1,9 +1,11 @@
 package com.hma.pages;
 
-import com.hma.pages.stable.*;
+import com.hma.pages.stable.Menu;
+import com.hma.pages.stable.ToolsAndContacts;
+import com.hma.util.PropertyLoader;
 
-import static com.hma.pages.PageInitialisation.MenuBar;
-import static com.hma.pages.PageInitialisation.ToolsAndContactMenu;
+import static com.hma.pages.PageInitialisation.menuBar;
+import static com.hma.pages.PageInitialisation.toolsAndContactMenu;
 
 public abstract class BasePage {
 
@@ -16,9 +18,8 @@ public abstract class BasePage {
 
 
     public BasePage () {
-
-        menuBar = MenuBar();
-        toolsAndContactsMenu = ToolsAndContactMenu();
+        this.menuBar = menuBar();
+        this.toolsAndContactsMenu = toolsAndContactMenu();
     }
 
     public abstract void Goto();
@@ -30,7 +31,7 @@ public abstract class BasePage {
     protected abstract String RelativeUrl();
 
     protected String baseUrl()    {
-        return "http://www.hidemyass.com";
+        return PropertyLoader.loadProperty("site.url");
     }
 
     public void goToSignIn() {

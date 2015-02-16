@@ -1,28 +1,43 @@
 package com.hma.pages;
 
+import com.hma.pages.feature.HomePage;
+import com.hma.pages.stable.Footer;
+import com.hma.pages.stable.Menu;
+import com.hma.pages.stable.ToolsAndContacts;
+import com.hma.webdriver.Browser;
+import org.openqa.selenium.support.PageFactory;
+
 public class PageInitialisation {
 
     public PageInitialisation() {
 
     }
 
-    public static com.hma.pages.feature.HomePage HomePage() {
+    public static com.hma.pages.feature.HomePage homePage() {
 
-        return new com.hma.pages.feature.HomePage();
+        HomePage h = new HomePage();
+        PageFactory.initElements(Browser.webDriver(), h );
+        return h;
     }
 
-    public static com.hma.pages.stable.Menu MenuBar() {
+    public static Menu menuBar() {
 
-        return new com.hma.pages.stable.Menu();
+        Menu m = new Menu();
+        PageFactory.initElements(Browser.webDriver(), m );
+        return m;
     }
 
-    public static com.hma.pages.stable.ToolsAndContacts ToolsAndContactMenu() {
+    public static ToolsAndContacts toolsAndContactMenu() {
 
-        return new com.hma.pages.stable.ToolsAndContacts();
+        ToolsAndContacts t = new ToolsAndContacts();
+        PageFactory.initElements(Browser.webDriver(), t);
+        return t;
     }
 
-    public static com.hma.pages.stable.Footer Footer() {
+    public static Footer footer() {
 
-        return new com.hma.pages.stable.Footer();
+        Footer f = new Footer();
+        PageFactory.initElements(Browser.webDriver(), f);
+        return f;
     }
 }

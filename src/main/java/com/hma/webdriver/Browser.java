@@ -7,38 +7,37 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.BrowserType;
 import org.openqa.selenium.safari.SafariDriver;
 
-public class Browser {
+public final class Browser {
 
     private static boolean disableJavaScript;
 
     private static String name;
-	private String version;
-	private String platform;
+	private static String version;
+	private static String platform;
     private static WebDriver Driver;
 
-    public Browser() {
-          WebDriver();
+    private Browser() {
+
     }
 
-    public WebDriver WebDriver ()
-    {
+    public static WebDriver webDriver(){
         return CreateDriver();
     }
 
-	public String getName() {
+	public static String getName() {
 		return name;
 	}
 
-    public void setName(String name) {
-		this.name = name;
+    public static void setName(String newName) {
+		name = newName;
 	}
 
-    public String getPlatform() {
+    public static String getPlatform() {
 		return platform;
 	}
 
-    public void setPlatform(String platform) {
-		this.platform = platform;
+    public static void setPlatform(String newPlatform) {
+		platform = newPlatform;
 	}
 
     public static void Back()
@@ -61,7 +60,7 @@ public class Browser {
     protected static WebDriver CreateDriver() {
 
         name = BrowserType.CHROME;
-        return CreateDriver(BrowserType.CHROME);
+        return CreateDriver(BrowserType.FIREFOX);
 
     }
 
@@ -85,12 +84,12 @@ public class Browser {
 
     }
 
-    public String getVersion() {
+    protected static String getVersion() {
         return version;
     }
 
-    public void setVersion(String version) {
-        this.version = version;
+    protected static  void setVersion(String newVersion) {
+        version = newVersion;
     }
 }
 

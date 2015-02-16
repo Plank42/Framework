@@ -1,16 +1,10 @@
 package com.hma.pages.feature;
 
 import com.hma.pages.BasePage;
-import org.openqa.selenium.By;
+import com.hma.webdriver.Browser;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-
-import java.sql.Driver;
-
-
-// import org.openqa.selenium.support.CacheLookup;
-
 
 public class HomePage extends BasePage {
 
@@ -42,6 +36,8 @@ public class HomePage extends BasePage {
 
     @Override
     public void Goto() {
+
+        Browser.webDriver().get(baseUrl());
     }
 
     @Override

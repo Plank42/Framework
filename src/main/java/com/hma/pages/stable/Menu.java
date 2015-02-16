@@ -16,10 +16,6 @@ public class Menu {
 
     @FindBy(how = How.CSS, using = "* nav > ul.nav-sub > li > a") protected WebElement signInButton;
 
-    public Menu() {
-
-    }
-
     public void ClickToolsAndContactsLink() {
         toolsAndContactsLink.click();
     }
