@@ -1,12 +1,13 @@
 package com.hma.pages.feature;
 
 import com.hma.pages.BasePage;
-import com.hma.webdriver.Browser;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
 public class HomePage extends BasePage {
+
 
 	@FindBy(how = How.CSS, using = "img.jack") protected WebElement IronManImg;
 	@FindBy(how = How.CSS, using = "div.xmas-arched-banner div.arched") protected WebElement xmasBnr;
@@ -20,10 +21,8 @@ public class HomePage extends BasePage {
 
 
 	/* Read */ //All CSS
-	@FindBy(how = How.CSS, using="body > div.ng-view.ng-scope > section > section.tissue-box.section-component > div:nth-child(2) > div:nth-child(1) > a")
-	protected WebElement ForbesElement;
-	@FindBy(how = How.CSS, using ="body > div.ng-view.ng-scope > section > section.tissue-box.section-component > div:nth-child(2) > div:nth-child(2) > a")
-	protected WebElement GuardianElement;
+	@FindBy(how = How.CSS, using="body > div.ng-view.ng-scope > section > section.tissue-box.section-component > div:nth-child(2) > div:nth-child(1) > a") 	protected WebElement ForbesElement;
+	@FindBy(how = How.CSS, using ="body > div.ng-view.ng-scope > section > section.tissue-box.section-component > div:nth-child(2) > div:nth-child(2) > a") 	protected WebElement GuardianElement;
 
     // TODO CSS details to complete
 	@FindBy(how = How.CSS, using ="") protected WebElement element02; // body > div.ng-view.ng-scope > section > section.tissue-box.section-component > div:nth-child(2) > div:nth-child(1) > a
@@ -33,11 +32,13 @@ public class HomePage extends BasePage {
 	@FindBy(how = How.CSS, using ="") protected WebElement element06; // body > div.ng-view.ng-scope > section > section.tissue-box.section-component > div:nth-child(2) > div:nth-child(4) > a
     @FindBy(how = How.CSS, using ="") protected WebElement element07; //body > div.ng-view.ng-scope > section > section.tissue-box.section-component > div:nth-child(2) > div:nth-child(5) > a
 
+    public HomePage(WebDriver driver){
+
+    }
 
     @Override
     public void Goto() {
 
-        Browser.webDriver().get(baseUrl());
     }
 
     @Override
@@ -51,7 +52,13 @@ public class HomePage extends BasePage {
     }
 
     @Override
+    protected String setPageName(String name) {
+        return null;
+    }
+
+    @Override
     protected String RelativeUrl() {
         return null;
     }
+
 }

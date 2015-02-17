@@ -1,17 +1,12 @@
-package com.hma.pages;
-
-// import com.hma.util.PropertyLoader;
-
+package com.hma.pages.tests;
 
 import com.hma.util.PropertyLoader;
-import com.hma.webdriver.Browser;
+import com.hma.webdriver.DriverInit;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
+import org.testng.annotations.BeforeSuite;
 
-@Test
-public class TestBase {
+public class BaseTest {
 
 	private static final String SCREENSHOT_FOLDER = "target/screenshots/";
 	private static final String SCREENSHOT_FORMAT = ".jpg";
@@ -22,9 +17,9 @@ public class TestBase {
 
 
 
-	@BeforeClass
+	@BeforeSuite
 	public void init() {
-        webdriver = Browser.webDriver();
+        webdriver = new DriverInit().init();
 		websiteUrl = PropertyLoader.loadProperty("site.url");
 		//gridHubUrl = PropertyLoader.loadProperty("grid2.hub");
 

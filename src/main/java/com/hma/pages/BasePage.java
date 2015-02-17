@@ -3,23 +3,28 @@ package com.hma.pages;
 import com.hma.pages.stable.Menu;
 import com.hma.pages.stable.ToolsAndContacts;
 import com.hma.util.PropertyLoader;
-
-import static com.hma.pages.PageInitialisation.menuBar;
-import static com.hma.pages.PageInitialisation.toolsAndContactMenu;
+import com.hma.webdriver.DriverInit;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
 
 public abstract class BasePage {
 
-    protected String pageName;
-    protected String relativeURL;
+    protected String Title;
+    protected String RelativeURL;
     protected String URL;
+    protected String BaseURL;
+    protected WebDriver driver;
 
     protected Menu menuBar;
     protected ToolsAndContacts toolsAndContactsMenu;
 
 
-    public BasePage () {
-        this.menuBar = menuBar();
-        this.toolsAndContactsMenu = toolsAndContactMenu();
+    public BasePage() {
+        driver = new DriverInit().init();
+
+        PageFactory.initElements(driver, this);
+        this.menuBar = PageInitialisation.menuBar();
+        this.toolsAndContactsMenu = PageInitialisation.toolsAndContactMenu();
     }
 
     public abstract void Goto();
@@ -27,16 +32,33 @@ public abstract class BasePage {
     public abstract String getTitle();
 
     protected abstract String setTitle(String name);
+    protected abstract String setPageName(String name);
 
     protected abstract String RelativeUrl();
 
+    public boolean isAt(){
+        return driver.getTitle() == Title;
+    }
+
+    public boolean verifyAt() throws Exception{
+        if (!isAt()) {
+             throw new Exception("unable to verify location as " + this.getTitle());
+        }
+
+        return true;
+    }
+
     protected String baseUrl()    {
-        return PropertyLoader.loadProperty("site.url");
+
+        BaseURL = PropertyLoader.loadProperty("site.url");
+        return BaseURL;
     }
 
     public void goToSignIn() {
+
         menuBar.ClickSignInButton();
     }
+
 
     public void goToToolsAndContactMenu(char navigation) {
 

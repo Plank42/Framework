@@ -5,7 +5,7 @@ import com.hma.pages.BasePage;
 /**
  * Created by Sentinel on 15/02/2015.
  */
-public class SignIn extends BasePage{
+public class SignIn extends BasePage {
     @Override
     public void Goto() {
 
@@ -18,6 +18,11 @@ public class SignIn extends BasePage{
 
     @Override
     protected String setTitle(String name) {
+        return null;
+    }
+
+    @Override
+    protected String setPageName(String name) {
         return null;
     }
 

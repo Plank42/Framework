@@ -1,5 +1,6 @@
 package com.hma.pages.stable;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -9,8 +10,10 @@ import org.openqa.selenium.support.How;
  */
 public class ToolsAndContacts {
 
-    public ToolsAndContacts() {
+    WebDriver driver;
 
+    public ToolsAndContacts(WebDriver webDriver) {
+        this.driver = webDriver;
     }
 
     @FindBy(how = How.CSS, using = "* div.europa-dip-fixed > div.reveal-container-top > a") protected WebElement closeButton;

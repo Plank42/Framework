@@ -1,6 +1,6 @@
-package com.hma.pages;
+package com.hma.pages.tests.feature;
 
-import com.hma.pages.feature.HomePage;
+import com.hma.pages.tests.BaseTest;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
@@ -11,12 +11,11 @@ import static com.hma.pages.PageInitialisation.menuBar;
 
 
 @Test
-public class HomePageTest extends TestBase {
+public class HomePageTest extends BaseTest {
 
 	@BeforeTest
 	public void testInit() {
-        PageFactory.initElements(webdriver, HomePage.class);
-		webdriver.get(websiteUrl);
+        PageFactory.initElements(webdriver, this);
 	}
 
 	@Test(groups = { "p1", "smoke" })
