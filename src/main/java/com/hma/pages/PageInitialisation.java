@@ -6,40 +6,43 @@ import com.hma.pages.stable.Menu;
 import com.hma.pages.stable.ToolsAndContacts;
 import com.hma.webdriver.DriverInit;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
 
 public class PageInitialisation {
 
     protected static WebDriver driver;
 
     private PageInitialisation() {
-        driver = new DriverInit().init();
+
+        DriverInit di = new DriverInit();
+        driver = di.init();
     }
 
-    public static HomePage homePage() {
+    public static HomePage homePage(WebDriver driver) {
 
-        // HomePage h = PageFactory.initElements(Browser.webDriver(), HomePage.class );
-        HomePage h = new HomePage(driver);
+        HomePage h = PageFactory.initElements(driver, HomePage.class);
+        //HomePage h = new HomePage(driver);
         return h;
     }
 
-    public static Menu menuBar() {
+    public static Menu menuBar(WebDriver driver) {
 
-        // Menu m = PageFactory.initElements(Browser.webDriver(), Menu.class );
-        Menu m = new Menu(driver);
+         Menu m = PageFactory.initElements(driver, Menu.class);
+        //Menu m = new Menu(driver);
         return m;
     }
 
-    public static ToolsAndContacts toolsAndContactMenu() {
+    public static ToolsAndContacts toolsAndContactMenu(WebDriver driver) {
 
-        // ToolsAndContacts t = PageFactory.initElements(Browser.webDriver(), ToolsAndContacts.class);
-        ToolsAndContacts t = new ToolsAndContacts(driver);
+        ToolsAndContacts t = PageFactory.initElements(driver, ToolsAndContacts.class);
+        //ToolsAndContacts t = new ToolsAndContacts(driver);
         return t;
     }
 
-    public static Footer footer() {
+    public static Footer footer(WebDriver driver) {
 
-        //Footer f = PageFactory.initElements(Browser.webDriver(), Footer.class);
-        Footer f = new Footer(driver);
+        Footer f = PageFactory.initElements(driver, Footer.class);
+        //Footer f = new Footer(driver);
         return f;
     }
 

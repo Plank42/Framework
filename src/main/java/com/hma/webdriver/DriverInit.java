@@ -21,7 +21,7 @@ public final class DriverInit {
         //name = BrowserType.CHROME;
         // return CreateDriver(BrowserType.FIREFOX);
         //TODO Work on CrossBrowser Implementation
-        if(Driver != (null)) {
+        if(Driver == null) {
 
             name = BrowserType.FIREFOX;
             return new FirefoxDriver();
@@ -45,6 +45,10 @@ public final class DriverInit {
         }
         return new ChromeDriver();
 
+    }
+
+    public WebDriver getDriver(){
+        return Driver;
     }
 
 	public String getName() {

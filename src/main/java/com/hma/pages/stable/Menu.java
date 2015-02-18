@@ -1,19 +1,11 @@
 package com.hma.pages.stable;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
 public class Menu {
 
-
-    WebDriver driver;
-
-    public Menu (WebDriver webDriver){
-
-        this.driver = webDriver;
-    }
 
     @FindBy(how = How.CSS, using = "* div.europa-dip-bar > a") protected WebElement hmaHomeLink;
     @FindBy(how = How.CSS, using = "* nav > ul:nth-child(1) > li:nth-child(1) > a > span") protected WebElement vpnLink;
@@ -22,7 +14,6 @@ public class Menu {
     @FindBy(how = How.CSS, using = "* nav > ul:nth-child(1) > li:nth-child(4) > a > span") protected WebElement toolsAndContactsLink;
     @FindBy(how = How.CSS, using = "* nav > ul:nth-child(1) > li:nth-child(5) > a > span") protected WebElement helpLink;
     @FindBy(how = How.CSS, using = "* nav > ul.nav-main.nav-language > language-selector > li > div") protected WebElement languageDropDown;
-
     @FindBy(how = How.CSS, using = "* nav > ul.nav-sub > li > a") protected WebElement signInButton;
 
     public void ClickToolsAndContactsLink() {

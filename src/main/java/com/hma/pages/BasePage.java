@@ -3,7 +3,6 @@ package com.hma.pages;
 import com.hma.pages.stable.Menu;
 import com.hma.pages.stable.ToolsAndContacts;
 import com.hma.util.PropertyLoader;
-import com.hma.webdriver.DriverInit;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
@@ -19,34 +18,21 @@ public abstract class BasePage {
     protected ToolsAndContacts toolsAndContactsMenu;
 
 
-    public BasePage() {
-        driver = new DriverInit().init();
-
-        PageFactory.initElements(driver, this);
-        this.menuBar = PageInitialisation.menuBar();
-        this.toolsAndContactsMenu = PageInitialisation.toolsAndContactMenu();
+    public BasePage(WebDriver driver) {
+          PageFactory.initElements(driver, this);
     }
 
-    public abstract void Goto();
+    public abstract void Goto(WebDriver driver);
 
-    public abstract String getTitle();
+    public abstract String getTitle(WebDriver driver);
 
-    protected abstract String setTitle(String name);
-    protected abstract String setPageName(String name);
+    public abstract String getPageName(WebDriver driver);
 
     protected abstract String RelativeUrl();
 
-    public boolean isAt(){
-        return driver.getTitle() == Title;
-    }
+    public abstract boolean isAt(WebDriver driver);
 
-    public boolean verifyAt() throws Exception{
-        if (!isAt()) {
-             throw new Exception("unable to verify location as " + this.getTitle());
-        }
-
-        return true;
-    }
+    public abstract boolean verifyAt(WebDriver driver);
 
     protected String baseUrl()    {
 
@@ -54,14 +40,20 @@ public abstract class BasePage {
         return BaseURL;
     }
 
-    public void goToSignIn() {
+    public void goToSignIn(WebDriver driver) {
 
+        if (menuBar != null) {
+            menuBar = PageFactory.initElements(driver, Menu.class);
+        }
         menuBar.ClickSignInButton();
     }
 
 
     public void goToToolsAndContactMenu(char navigation) {
 
+        if (menuBar != null) {
+            menuBar = PageFactory.initElements(driver, Menu.class);
+        }
         menuBar.ClickToolsAndContactsLink();
 
         switch (navigation) {

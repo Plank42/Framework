@@ -8,7 +8,6 @@ import org.openqa.selenium.support.How;
 
 public class HomePage extends BasePage {
 
-
 	@FindBy(how = How.CSS, using = "img.jack") protected WebElement IronManImg;
 	@FindBy(how = How.CSS, using = "div.xmas-arched-banner div.arched") protected WebElement xmasBnr;
 	@FindBy(how = How.CSS, using = "div.iron-man-heading  a.button*") protected WebElement JoinNowBtn;
@@ -18,8 +17,6 @@ public class HomePage extends BasePage {
 	@FindBy(how = How.CSS, using = "#pricing > div > div.pricing-table-container.inner.row > div:nth-child(1) > ul > li:nth-child(8) > a") protected WebElement TwelveMonthPlanBtn;
 	@FindBy(how = How.CSS, using = "#pricing > div > div.pricing-table-container.inner.row > div:nth-child(2) > ul > li:nth-child(8) > a") protected WebElement SixMonthPlanBtn;
 	@FindBy(how = How.CSS, using = "#pricing > div > div.pricing-table-container.inner.row > div:nth-child(3) > ul > li:nth-child(8) > a") protected WebElement OneMonthPlanBtn;
-
-
 	/* Read */ //All CSS
 	@FindBy(how = How.CSS, using="body > div.ng-view.ng-scope > section > section.tissue-box.section-component > div:nth-child(2) > div:nth-child(1) > a") 	protected WebElement ForbesElement;
 	@FindBy(how = How.CSS, using ="body > div.ng-view.ng-scope > section > section.tissue-box.section-component > div:nth-child(2) > div:nth-child(2) > a") 	protected WebElement GuardianElement;
@@ -32,33 +29,42 @@ public class HomePage extends BasePage {
 	@FindBy(how = How.CSS, using ="") protected WebElement element06; // body > div.ng-view.ng-scope > section > section.tissue-box.section-component > div:nth-child(2) > div:nth-child(4) > a
     @FindBy(how = How.CSS, using ="") protected WebElement element07; //body > div.ng-view.ng-scope > section > section.tissue-box.section-component > div:nth-child(2) > div:nth-child(5) > a
 
-    public HomePage(WebDriver driver){
-
+    public HomePage(WebDriver driver) {
+        super(driver);
     }
 
     @Override
-    public void Goto() {
-
+    public void Goto(WebDriver driver) {
+        driver.get(super.baseUrl());
     }
 
     @Override
-    public String getTitle() {
-        return null;
+    public String getTitle(WebDriver driver) {
+        return driver.getTitle();
     }
 
     @Override
-    protected String setTitle(String name) {
-        return null;
-    }
-
-    @Override
-    protected String setPageName(String name) {
+    public String getPageName(WebDriver driver) {
         return null;
     }
 
     @Override
     protected String RelativeUrl() {
         return null;
+    }
+
+    @Override
+    public boolean isAt(WebDriver driver) {
+        return false;
+    }
+
+    @Override
+    public boolean verifyAt(WebDriver driver) {
+        return false;
+    }
+
+    public void ClickHome() {
+        super.menuBar.ClickHmaHomeLink();
     }
 
 }

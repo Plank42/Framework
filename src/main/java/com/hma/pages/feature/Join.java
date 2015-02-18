@@ -11,32 +11,37 @@ public class Join extends BasePage {
     WebDriver driver;
 
     public Join (WebDriver driver){
-        this.driver = driver;
-    }
-
-
-    @Override
-    public void Goto() {
-
+        super(driver);
     }
 
     @Override
-    public String getTitle() {
+    public void Goto(WebDriver driver) {
+        driver.get(baseUrl() + RelativeUrl() );
+    }
+
+    @Override
+    public String getTitle(WebDriver driver) {
         return null;
     }
 
     @Override
-    protected String setTitle(String name) {
-        return null;
-    }
-
-    @Override
-    protected String setPageName(String name) {
+    public String getPageName(WebDriver driver) {
         return null;
     }
 
     @Override
     protected String RelativeUrl() {
-        return null;
+
+        return "/vpncontrol/join/";
+    }
+
+    @Override
+    public boolean isAt(WebDriver driver) {
+        return false;
+    }
+
+    @Override
+    public boolean verifyAt(WebDriver driver) {
+        return false;
     }
 }

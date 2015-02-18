@@ -15,11 +15,11 @@ public class BaseTest {
 	public String websiteUrl;
     public WebDriver webdriver;
 
-
-
 	@BeforeSuite
 	public void init() {
-        webdriver = new DriverInit().init();
+
+        DriverInit di = new DriverInit();
+        webdriver = di.init();
 		websiteUrl = PropertyLoader.loadProperty("site.url");
 		//gridHubUrl = PropertyLoader.loadProperty("grid2.hub");
 
