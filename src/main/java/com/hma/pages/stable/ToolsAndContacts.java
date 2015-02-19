@@ -1,13 +1,13 @@
 package com.hma.pages.stable;
 
+import com.hma.pages.BasePage;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.PageFactory;
 
-/**
- * Created by anewton on 13/02/2015.
- */
-public class ToolsAndContacts {
+public class ToolsAndContacts extends BasePage{
 
     @FindBy(how = How.CSS, using = "* div.europa-dip-fixed > div.reveal-container-top > a") protected WebElement closeButton;
 
@@ -37,6 +37,57 @@ public class ToolsAndContacts {
 
     @FindBy(how = How.CSS, using="div.reveal-container-top") protected WebElement Menu;
 
+    private WebDriver Driver;
+
+
+    public ToolsAndContacts(WebDriver webDriver){
+
+        super(webDriver);
+        this.Driver = webDriver;
+        PageFactory.initElements(webDriver, this);
+    }
+
+    @Override
+    public void navigate() {
+        Driver.get(baseUrl());
+    }
+
+    @Override
+    protected void load() {
+
+        Driver.navigate();
+    }
+
+    @Override
+    protected void isLoaded() throws Error {
+
+    }
+
+    @Override
+    public String getTitle(WebDriver driver) {
+        return null;
+    }
+
+    @Override
+    public String getPageName(WebDriver driver) {
+        return null;
+    }
+
+    @Override
+    protected String RelativeUrl() {
+        return null;
+    }
+
+    @Override
+    public boolean isAt(WebDriver driver) {
+        return false;
+    }
+
+    @Override
+    public boolean verifyAt(WebDriver driver) {
+        return false;
+    }
+
     public boolean checkToolsAndContactsState() {
 
         if(Menu.isDisplayed()) {
@@ -45,6 +96,8 @@ public class ToolsAndContacts {
 
         return false;
     }
+
+
 
 
 

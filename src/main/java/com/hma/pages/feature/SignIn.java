@@ -8,22 +8,38 @@ import org.openqa.selenium.WebDriver;
  */
 public class SignIn extends BasePage {
 
-    public SignIn(WebDriver driver) {
-        super(driver);
+    WebDriver Driver;
+
+    public SignIn(WebDriver webDriver) {
+        super(webDriver);
+        this.Driver = webDriver;
     }
 
     @Override
-    public void Goto(WebDriver driver) {
+    protected void navigate() {
 
     }
+
+    @Override
+    protected void load() {
+
+    }
+
+    @Override
+    protected void isLoaded() throws Error {
+
+    }
+
 
     @Override
     public String getTitle(WebDriver driver) {
+
         return null;
     }
 
     @Override
     public String getPageName(WebDriver driver) {
+
         return null;
     }
 

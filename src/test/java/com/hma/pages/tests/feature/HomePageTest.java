@@ -16,14 +16,15 @@ public class HomePageTest extends BaseTest {
 
 	@BeforeTest
 	public void testInit() {
-        hp = homePage(webdriver);
+
+        hp = (HomePage) homePage(webdriver).get();
 	}
 
 	@Test(groups = { "p1", "smoke" })
 	public void testSomething() {
 
-        hp.Goto(webdriver);
-		hp.ClickHome();
+        hp.ClickHome();
+		hp.getPageName(webdriver);
 	}
 
 	@Test

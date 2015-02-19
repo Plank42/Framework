@@ -15,8 +15,18 @@ public class Join extends BasePage {
     }
 
     @Override
-    public void Goto(WebDriver driver) {
+    protected void navigate() {
         driver.get(baseUrl() + RelativeUrl() );
+    }
+
+    @Override
+    protected void load() {
+        this.navigate();
+    }
+
+    @Override
+    protected void isLoaded() throws Error {
+
     }
 
     @Override

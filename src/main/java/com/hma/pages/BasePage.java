@@ -5,8 +5,9 @@ import com.hma.pages.stable.ToolsAndContacts;
 import com.hma.util.PropertyLoader;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.LoadableComponent;
 
-public abstract class BasePage {
+public abstract class BasePage extends LoadableComponent<BasePage> {
 
     protected String Title;
     protected String RelativeURL;
@@ -22,11 +23,13 @@ public abstract class BasePage {
           PageFactory.initElements(driver, this);
     }
 
-    public abstract void Goto(WebDriver driver);
+    protected abstract void navigate();
 
-    public abstract String getTitle(WebDriver driver);
+    protected abstract void load();
 
-    public abstract String getPageName(WebDriver driver);
+    protected abstract String getTitle(WebDriver driver);
+
+    protected abstract String getPageName(WebDriver driver);
 
     protected abstract String RelativeUrl();
 
