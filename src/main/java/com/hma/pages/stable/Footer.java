@@ -1,7 +1,6 @@
 package com.hma.pages.stable;
 
 import com.hma.pages.BasePage;
-import org.openqa.selenium.WebDriver;
 
 /**
  * Created by anewton on 13/02/2015.
@@ -9,8 +8,8 @@ import org.openqa.selenium.WebDriver;
 public class Footer extends BasePage{
 
 
-    public Footer(WebDriver driver) {
-        super(driver);
+    public Footer(/*WebDriver driver*/) {
+        /*super(driver);*/
     }
 
     @Override
@@ -29,12 +28,12 @@ public class Footer extends BasePage{
     }
 
     @Override
-    protected String getTitle(WebDriver driver) {
+    protected String getTitle(/*WebDriver driver*/) {
         return null;
     }
 
     @Override
-    protected String getPageName(WebDriver driver) {
+    protected String getPageName(/*WebDriver driver*/) {
         return null;
     }
 
@@ -44,12 +43,12 @@ public class Footer extends BasePage{
     }
 
     @Override
-    public boolean isAt(WebDriver driver) {
+    public boolean isAt(/*WebDriver driver*/) {
         return false;
     }
 
     @Override
-    public boolean verifyAt(WebDriver driver) {
+    public boolean verifyAt(/*WebDriver driver*/) {
         return false;
     }
 }

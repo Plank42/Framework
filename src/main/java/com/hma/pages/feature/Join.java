@@ -1,22 +1,21 @@
 package com.hma.pages.feature;
 
 import com.hma.pages.BasePage;
-import org.openqa.selenium.WebDriver;
 
 /**
  * Created by anewton on 05/12/2014.
  */
 public class Join extends BasePage {
 
-    WebDriver driver;
+    /*WebDriver driver;
 
-    public Join (WebDriver driver){
-        super(driver);
-    }
+    public Join (*//*WebDriver driver*//*){
+
+    }*/
 
     @Override
     protected void navigate() {
-        driver.get(baseUrl() + RelativeUrl() );
+        /*driver.get(baseUrl() + RelativeUrl() );*/
     }
 
     @Override
@@ -30,12 +29,12 @@ public class Join extends BasePage {
     }
 
     @Override
-    public String getTitle(WebDriver driver) {
+    public String getTitle(/*WebDriver driver*/) {
         return null;
     }
 
     @Override
-    public String getPageName(WebDriver driver) {
+    public String getPageName(/*WebDriver driver*/) {
         return null;
     }
 
@@ -46,12 +45,12 @@ public class Join extends BasePage {
     }
 
     @Override
-    public boolean isAt(WebDriver driver) {
+    public boolean isAt(/*WebDriver driver*/) {
         return false;
     }
 
     @Override
-    public boolean verifyAt(WebDriver driver) {
+    public boolean verifyAt(/*WebDriver driver*/) {
         return false;
     }
 }

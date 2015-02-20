@@ -18,10 +18,10 @@ public class PageInitialisation {
         driver = di.init();
     }
 
-    public static HomePage homePage(WebDriver driver) {
+    public static HomePage homePage(/*WebDriver driver*/) {
 
-        //HomePage h = PageFactory.initElements(driver, HomePage.class);
-        HomePage h = new HomePage(driver);
+        HomePage h = PageFactory.initElements(driver, HomePage.class);
+        //HomePage h = new HomePage(/*driver*/);
         return h;
     }
 

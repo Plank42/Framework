@@ -3,8 +3,6 @@ package com.hma.pages;
 import com.hma.pages.stable.Menu;
 import com.hma.pages.stable.ToolsAndContacts;
 import com.hma.util.PropertyLoader;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.LoadableComponent;
 
 public abstract class BasePage extends LoadableComponent<BasePage> {
@@ -12,47 +10,44 @@ public abstract class BasePage extends LoadableComponent<BasePage> {
     protected String Title;
     protected String RelativeURL;
     protected String URL;
-    protected String BaseURL;
-    protected WebDriver driver;
+    protected String BaseURL = PropertyLoader.loadProperty("site.url");
+    //protected WebDriver driver;
 
     protected Menu menuBar;
     protected ToolsAndContacts toolsAndContactsMenu;
 
 
-    public BasePage(WebDriver driver) {
-          PageFactory.initElements(driver, this);
-    }
+//    public BasePage(WebDriver driver) {
+//          PageFactory.initElements(driver, this);
+//    }
 
     protected abstract void navigate();
 
     protected abstract void load();
 
-    protected abstract String getTitle(WebDriver driver);
+    protected abstract String getTitle(/*WebDriver driver*/);
 
-    protected abstract String getPageName(WebDriver driver);
+    protected abstract String getPageName(/*WebDriver driver*/);
 
     protected abstract String RelativeUrl();
 
-    public abstract boolean isAt(WebDriver driver);
+    public abstract boolean isAt(/*WebDriver driver*/);
 
-    public abstract boolean verifyAt(WebDriver driver);
+    public abstract boolean verifyAt(/*WebDriver driver*/);
 
     protected String baseUrl()    {
-
-        BaseURL = PropertyLoader.loadProperty("site.url");
         return BaseURL;
     }
 
-    public void goToSignIn(WebDriver driver) {
+    /*public void goToSignIn(WebDriver driver) {
 
         if (menuBar != null) {
             menuBar = PageFactory.initElements(driver, Menu.class);
         }
         menuBar.ClickSignInButton();
-    }
+    }*/
 
-
-    public void goToToolsAndContactMenu(char navigation) {
+    /*public void goToToolsAndContactMenu(char navigation) {
 
         if (menuBar != null) {
             menuBar = PageFactory.initElements(driver, Menu.class);
@@ -64,8 +59,7 @@ public abstract class BasePage extends LoadableComponent<BasePage> {
             // case 'a': toolsAndContactsMenu.businessLink.click();
         }
 
-    }
-
+    }*/
 
 
 }

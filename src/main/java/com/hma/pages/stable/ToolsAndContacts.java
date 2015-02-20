@@ -1,13 +1,13 @@
 package com.hma.pages.stable;
 
 import com.hma.pages.BasePage;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-import org.openqa.selenium.support.PageFactory;
 
 public class ToolsAndContacts extends BasePage{
+
+
 
     @FindBy(how = How.CSS, using = "* div.europa-dip-fixed > div.reveal-container-top > a") protected WebElement closeButton;
 
@@ -37,7 +37,7 @@ public class ToolsAndContacts extends BasePage{
 
     @FindBy(how = How.CSS, using="div.reveal-container-top") protected WebElement Menu;
 
-    private WebDriver Driver;
+/*    private WebDriver Driver;
 
 
     public ToolsAndContacts(WebDriver webDriver){
@@ -45,17 +45,17 @@ public class ToolsAndContacts extends BasePage{
         super(webDriver);
         this.Driver = webDriver;
         PageFactory.initElements(webDriver, this);
-    }
+    }*/
 
     @Override
     public void navigate() {
-        Driver.get(baseUrl());
+        /*Driver.get(baseUrl());*/
     }
 
     @Override
     protected void load() {
 
-        Driver.navigate();
+        /*Driver.navigate();*/
     }
 
     @Override
@@ -64,12 +64,12 @@ public class ToolsAndContacts extends BasePage{
     }
 
     @Override
-    public String getTitle(WebDriver driver) {
+    public String getTitle(/*WebDriver driver*/) {
         return null;
     }
 
     @Override
-    public String getPageName(WebDriver driver) {
+    public String getPageName(/*WebDriver driver*/) {
         return null;
     }
 
@@ -79,12 +79,12 @@ public class ToolsAndContacts extends BasePage{
     }
 
     @Override
-    public boolean isAt(WebDriver driver) {
+    public boolean isAt(/*WebDriver driver*/) {
         return false;
     }
 
     @Override
-    public boolean verifyAt(WebDriver driver) {
+    public boolean verifyAt(/*WebDriver driver*/) {
         return false;
     }
 
@@ -97,10 +97,93 @@ public class ToolsAndContacts extends BasePage{
         return false;
     }
 
+    public WebElement getCloseButton() {
+        return closeButton;
+    }
 
+    public WebElement getJobsLink() {
+        return jobsLink;
+    }
 
+    public WebElement getPrivacyLink() {
+        return privacyLink;
+    }
 
+    public WebElement getAffiliatesLinks() {
+        return affiliatesLinks;
+    }
 
+    public WebElement getReviewsLink() {
+        return reviewsLink;
+    }
+
+    public WebElement getProxyLink() {
+        return proxyLink;
+    }
+
+    public WebElement getServersLink() {
+        return serversLink;
+    }
+
+    public WebElement getIpPortLink() {
+        return ipPortLink;
+    }
+
+    public WebElement getAnonEmailLink() {
+        return anonEmailLink;
+    }
+
+    public WebElement getAnonRferLink() {
+        return anonRferLink;
+    }
+
+    public WebElement getPrivSWLink() {
+        return privSWLink;
+    }
+
+    public WebElement getRoutersLink() {
+        return routersLink;
+    }
+
+    public WebElement getVpnSWLink() {
+        return vpnSWLink;
+    }
+
+    public WebElement getFbLink() {
+        return fbLink;
+    }
+
+    public WebElement getTwitterLink() {
+        return twitterLink;
+    }
+
+    public WebElement getgPLusLink() {
+        return gPLusLink;
+    }
+
+    public WebElement getBlogLink() {
+        return blogLink;
+    }
+
+    public WebElement getCommunityLink() {
+        return communityLink;
+    }
+
+    public WebElement getEmailLink() {
+        return emailLink;
+    }
+
+    public WebElement getLiveChat() {
+        return liveChat;
+    }
+
+    public WebElement getBusinessLink() {
+        return businessLink;
+    }
+
+    public WebElement getMenu() {
+        return Menu;
+    }
 }
 
 

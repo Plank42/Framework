@@ -1,15 +1,11 @@
 package com.hma.pages.feature;
 
 import com.hma.pages.BasePage;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-import org.openqa.selenium.support.PageFactory;
 
 public class HomePage extends BasePage {
-
-
 
     @FindBy(how = How.CSS, using = "img.jack") protected WebElement IronManImg;
 	@FindBy(how = How.CSS, using = "div.xmas-arched-banner div.arched") protected WebElement xmasBnr;
@@ -37,22 +33,22 @@ public class HomePage extends BasePage {
 	@FindBy(how = How.CSS, using ="") protected WebElement element06; // body > div.ng-view.ng-scope > section > section.tissue-box.section-component > div:nth-child(2) > div:nth-child(4) > a
     @FindBy(how = How.CSS, using ="") protected WebElement element07; //body > div.ng-view.ng-scope > section > section.tissue-box.section-component > div:nth-child(2) > div:nth-child(5) > a
 
-    private WebDriver Driver;
+    /*private WebDriver Driver;
 
     public HomePage(WebDriver webDriver) {
 
         super(webDriver);
         this.Driver =  webDriver;
         PageFactory.initElements(Driver, this);
-    }
+    }*/
 
     @Override
     protected void navigate() {
-        Driver.get(super.baseUrl());
+        /*Driver.get(super.baseUrl());*/
     }
 
     protected void load() {
-        this.navigate();
+        /*this.navigate();*/
     }
 
     @Override
@@ -61,12 +57,14 @@ public class HomePage extends BasePage {
     }
 
     @Override
-    public String getTitle(WebDriver driver) {
-        return driver.getTitle();
+    public String getTitle(/*WebDriver driver*/) {
+
+        return this.Title;
+        /*return driver.getTitle();*/
     }
 
     @Override
-    public String getPageName(WebDriver driver) {
+    public String getPageName(/*WebDriver driver*/) {
         return null;
     }
 
@@ -76,12 +74,12 @@ public class HomePage extends BasePage {
     }
 
     @Override
-    public boolean isAt(WebDriver driver) {
+    public boolean isAt(/*WebDriver driver*/) {
         return false;
     }
 
     @Override
-    public boolean verifyAt(WebDriver driver) {
+    public boolean verifyAt(/*WebDriver driver*/) {
         return false;
     }
 

@@ -11,7 +11,7 @@ public class BaseTest {
 	private static final String SCREENSHOT_FOLDER = "target/screenshots/";
 	private static final String SCREENSHOT_FORMAT = ".jpg";
 
-    public String gridHubUrl;
+//  public String gridHubUrl;
 	public String websiteUrl;
     public WebDriver webdriver;
 
